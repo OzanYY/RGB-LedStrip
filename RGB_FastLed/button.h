@@ -1,20 +1,11 @@
-#pragma once
 #include "Arduino.h"
 
-class btn_conf //Создание класса для кнопок
-{
-  public:
-    void nextPattern(); //Функция переключения режимов
-    void scanPot(); //Функция сканирования потоциометра
-  private:
-};
-
-void btn_conf::nextPattern()//Функция переключения режимов
+void nextPattern()//Функция переключения режимов
 {
   patternCounter = (patternCounter + 1) % 4; //Подсчет нажатий и выбор режима
 }
 
-void btn_conf::scanPot()//Функция сканирования потоциометра
+void scanPot()//Функция сканирования потоциометра
 {
   potRead = analogRead(POT); //Считывание положения потециметра
   switch(brightFromPot)

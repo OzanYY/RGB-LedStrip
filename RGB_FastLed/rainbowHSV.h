@@ -1,11 +1,9 @@
 #pragma once
 #include "Arduino.h"
 
-class rainbowHSV //Создание класса для режима - радуга
+struct rainbowHSV //Создание класса для режима - радуга
 {
-  public:
-    void runPattern(); //Функция запуска режима
-  private:
+  void runPattern(); //Функция запуска режима
 };
 
 void rainbowHSV::runPattern() //Функция запуска режима

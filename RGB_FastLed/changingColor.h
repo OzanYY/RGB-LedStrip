@@ -1,11 +1,9 @@
 #pragma once
 #include "Arduino.h"
 
-class changingColor //Создание класса для плавно сменяющегося цвета
+struct changingColor //Создание класса для плавно сменяющегося цвета
 {
-  public:
-    void runPattern(); //Функция запуска режима
-  private:
+  void runPattern(); //Функция запуска режим
 };
 
 void changingColor::runPattern() //Функция запуска режима

@@ -1,14 +1,11 @@
-#pragma once
 #include "Arduino.h"
 
-class effect //Создание класса для режима - градиент
-{
-  public:
-    void start(); //Функция запуска режима
-  private:
-};
+rainbowHSV rainbow; //Создание объекта в классе rainbowHSV
+changingColor changing; //Создание объекта в классе changingColor
+colorConfigurate configurate; //Создание объекта в классе colorConfigurate
+white white; //Создание объекта в классе gradient
 
-void effect::start() //Функция запуска режима
+void start() //Функция запуска режима
 {
   switch (patternCounter) //Переключение режимов
   {

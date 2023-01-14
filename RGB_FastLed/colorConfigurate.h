@@ -1,12 +1,10 @@
 #pragma once
 #include "Arduino.h"
 
-class colorConfigurate //Создание класса для ручного управления цветами
+struct colorConfigurate //Создание класса для ручного управления цветами
 {
-  public:
-    void runPattern(); //Запуск режима
-    void off(); //Выключение ленты
-  private:
+  void runPattern(); //Запуск режима
+  void off(); //Выключение ленты
 };
 
 void colorConfigurate::runPattern()//Запуск режима

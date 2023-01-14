@@ -1,22 +1,14 @@
-#pragma once
 #include "Arduino.h"
-
-class bluetooth //Создание класса для режима - градиент
-{
-  public:
-    void scan(); //Функция запуска режима
-  private:
-};
 
 #define PARSE_AMOUNT 7         // число значений в массиве, который хотим получить
 int intData[PARSE_AMOUNT];     // массив численных значений после парсинга
-bool recievedFlag;
-bool getStarted;
+bool recievedFlag = false;
+bool getStarted = false;
 byte index;
 String string_convert = "";
 
 void parsing() {
-  if (Serial.available() > 0) {
+  while(Serial.available() > 0) {
     char incomingByte = Serial.read();        // обязательно ЧИТАЕМ входящий символ
     if (getStarted) {                         // если приняли начальный символ (парсинг разрешён)
       if (incomingByte != ' ' && incomingByte != ';') {   // если это не пробел И не конец
@@ -39,7 +31,7 @@ void parsing() {
   }
 }
 
-void bluetooth::scan() //Функция запуска режима
+void scan() //Функция запуска режима
 {
   parsing();
   if (recievedFlag) 
@@ -47,7 +39,7 @@ void bluetooth::scan() //Функция запуска режима
     recievedFlag = false;
     for (byte i = 0; i < PARSE_AMOUNT; i++) 
     { // выводим элементы массива
-      Serial.print(intData[i]); Serial.print(" ");
+      Serial.print(intData[i]); Serial.print(' ');
     } 
     Serial.println();
 
